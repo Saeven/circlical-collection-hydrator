@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Circlical\Laminas\Doctrine\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use RuntimeException;
 
 use function array_diff;
 use function array_key_exists;
 use function array_keys;
+use function method_exists;
 
 /**
  * Take two collections of objects with a getId() method, and figure which
@@ -48,7 +50,7 @@ class CollectionDiff
             }
 
             if (!method_exists($object, 'getId')) {
-                throw new \RuntimeException("The comparator needs for your object to implement CollectionDiffInterface, or have a getId method.");
+                throw new RuntimeException("The comparator needs for your object to implement CollectionDiffInterface, or have a getId method.");
             }
 
             $oldArray[$object->getId()] = $object;
@@ -61,7 +63,7 @@ class CollectionDiff
             }
 
             if (!method_exists($object, 'getId')) {
-                throw new \RuntimeException("The comparator needs for your object to implement CollectionDiffInterface, or have a getId method.");
+                throw new RuntimeException("The comparator needs for your object to implement CollectionDiffInterface, or have a getId method.");
             }
 
             $newArray[$object->getId()] = $object;
