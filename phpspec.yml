@@ -1,0 +1,7 @@
+suites:
+  Core:
+    namespace: Circlical\Laminas\Doctrine
+    spec_prefix: Spec
+    src_path: src
+    spec_path: tests
+formatter.name: pretty
